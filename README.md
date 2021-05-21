@@ -4,7 +4,7 @@ Simple code for Cars detection
 << Made in python On windows >>
 
 
-![](ForReadMe/tempsnip.png)
+![](DetectCar/tempsnip.png)
 
   
 For this project you need to install two library :
