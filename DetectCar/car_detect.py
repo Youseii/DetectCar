@@ -1,29 +1,43 @@
-# ----------------------------Simple Cars Detection Code-----------------------
 import cv2
+import time
 
-video_src = 'video2.avi'
+class Detect:
+    def __init__(self):
+        
+        self.video_src = 'video2.avi'
+        self.video = cv2.VideoCapture(self.video_src)
+        self.car_cascade = cv2.CascadeClassifier("haarcascade_cars.xml")
+        self.ret, self.img = self.video.read()
 
-video = cv2.VideoCapture(video_src)
+    def draw(self, ret, img):
+        gray = cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
+        cars = self.car_cascade.detectMultiScale(gray, 1.1, 2)
 
-car_cascade = cv2.CascadeClassifier("haarcascade_cars.xml")
+        for (x, y, w, h) in cars:
+            cv2.rectangle(self.img, (x, y), (x+w, y+h), (0, 255, 255), 3)
 
-while True:
-    ret, img = video.read()
+        cv2.imshow('video', self.img)
 
-    if type(img) == type(None):
-        break
 
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    def read(self):
+        while True:
+            self.ret, self.img = self.video.read()
 
-    cars = car_cascade.detectMultiScale(gray, 1.1, 2)
+            if type(self.img) == type(None):
+                break
+            
+            Detect.draw(self, self.ret, self.img)
 
-    for (x, y, w, h) in cars:
-        cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 255), 3)
+            if cv2.waitKey(1) == ord('q'):  # Press 'q' to exit
+                break
 
-    cv2.imshow('video', img)
+        return self.ret, self.img
 
-    if cv2.waitKey(1) == ord('q'):  # Press 'q' to exit
-        break
 
-video.release()
-cv2.destroyAllWindows()
+if __name__ == '__main__':
+    
+    obj = Detect()
+    obj.read()
+    
+    obj.video.release()
+    cv2.destroyAllWindows()
