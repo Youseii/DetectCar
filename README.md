@@ -10,9 +10,5 @@ You will need to install 2 librairies, you just have to install the requirements
 
 ### Librairies for the installation
 - Opencv
-- Numpy 
 
 ![](DetectCar/tempsnip.png)
-
-## Credit
-- Thanks to @AdityaPai2398
