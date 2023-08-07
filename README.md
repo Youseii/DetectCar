@@ -6,9 +6,7 @@ This code will detect a car in a video, but we can probably add it to an camera.
 and show where is the car.
 
 ## Installation
-Install the requirements.txt available in the repository.
-
-### Librairies for the installation
-- Opencv
+  * Install the requirements.txt available in the repository for the libraries
+  * Run car_detect.py
 
 ![](DetectCar/tempsnip.png)
