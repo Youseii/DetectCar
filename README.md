@@ -6,7 +6,7 @@ This code will detect a car in a video, but we can probably add it to an camera.
 and show where is the car.
 
 ## Installation
-You will need to install 2 librairies, you just have to install the requirements.txt available in the repository.
+Install the requirements.txt available in the repository.
 
 ### Librairies for the installation
 - Opencv
